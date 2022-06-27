@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2022 at 10:33 PM
+-- Generation Time: Jun 27, 2022 at 08:23 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -149,6 +149,15 @@ CREATE TABLE `home_sliders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `home_sliders`
+--
+
+INSERT INTO `home_sliders` (`id`, `slider_image`, `created_at`, `updated_at`) VALUES
+(2, 'http://127.0.0.1:8000/upload/slider/1736809424020148.jpg', NULL, NULL),
+(3, 'http://127.0.0.1:8000/upload/slider/1736809436934700.jpg', NULL, NULL),
+(4, 'http://127.0.0.1:8000/upload/slider/1736809452298829.jpg', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -237,6 +246,17 @@ CREATE TABLE `oauth_access_tokens` (
   `expires_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `oauth_access_tokens`
+--
+
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('02a1f31d2c0aec8a1629fe09682784b6b945af95baa1ca2133cc11c582f95b30213630b503b98312', 4, 1, 'app', '[]', 0, '2022-06-27 09:56:55', '2022-06-27 09:56:55', '2023-06-27 11:56:55'),
+('2061aabd83fd6d5997195ceedbac26d46492f3fba3b252d6f18b27abed0c67ce24c970ea70611a5a', 1, 1, 'app', '[]', 0, '2022-06-27 00:22:53', '2022-06-27 00:22:53', '2023-06-27 02:22:53'),
+('28718df3adb26e77d1c665ea9ac5be2a8c24c44e242ce40909b47898868c85099862f8d4629f505b', 4, 1, 'app', '[]', 0, '2022-06-27 14:49:30', '2022-06-27 14:49:30', '2023-06-27 16:49:30'),
+('90fd46a035818468b2f9f8b095a13ca3ae83505a89ccb4830bf8861b8a674beeb58fbedc4bbcc3e6', 4, 1, 'app', '[]', 0, '2022-06-27 00:24:40', '2022-06-27 00:24:40', '2023-06-27 02:24:40'),
+('b47e65fd6904eedbc1ece2774f3dc724eb95ac42cd2ed48c665e21e3b52e5874142f1bb3f3edee76', 5, 1, 'app', '[]', 0, '2022-06-27 15:11:08', '2022-06-27 15:11:08', '2023-06-27 17:11:08');
+
 -- --------------------------------------------------------
 
 --
@@ -272,6 +292,14 @@ CREATE TABLE `oauth_clients` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `oauth_clients`
+--
+
+INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Laravel Personal Access Client', 'u4tPfg3dyqXo39i46JSqZ7fouRseYn4lPzgBkxSp', NULL, 'http://localhost', 1, 0, 0, '2022-06-27 00:17:38', '2022-06-27 00:17:38'),
+(2, NULL, 'Laravel Password Grant Client', '11yxoglo97RRfDDrw7RAMaMJkfAsR2mx6icdS406', 'users', 'http://localhost', 0, 1, 0, '2022-06-27 00:17:38', '2022-06-27 00:17:38');
+
 -- --------------------------------------------------------
 
 --
@@ -284,6 +312,13 @@ CREATE TABLE `oauth_personal_access_clients` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `oauth_personal_access_clients`
+--
+
+INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-06-27 00:17:38', '2022-06-27 00:17:38');
 
 -- --------------------------------------------------------
 
@@ -305,10 +340,18 @@ CREATE TABLE `oauth_refresh_tokens` (
 --
 
 CREATE TABLE `password_resets` (
+  `id` int(11) NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`id`, `email`, `token`, `created_at`) VALUES
+(24, 'abdo@gmail.com', '70574', NULL);
 
 -- --------------------------------------------------------
 
@@ -551,7 +594,11 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('0axIqhatEFrNJuX51KukqLALrDTVXYd5YpioqCge', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiZ1ZnR0s5RENSaEQyd09Hc2V2QnhzS0lPZ2RveDBTMlJkMkxqTVFlVSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjIxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkR3Z4Qk5kM2pQc3NsaFN5bExJRURZdXFjdFovVUJPMkRZai94TmRkdmc2cWY3Z2EwS1NvRy4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJEd2eEJOZDNqUHNzbGhTeWxMSUVEWXVxY3RaL1VCTzJEWWoveE5kZHZnNnFmN2dhMEtTb0cuIjt9', 1656273847);
+('0axIqhatEFrNJuX51KukqLALrDTVXYd5YpioqCge', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiZ1ZnR0s5RENSaEQyd09Hc2V2QnhzS0lPZ2RveDBTMlJkMkxqTVFlVSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjIxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkR3Z4Qk5kM2pQc3NsaFN5bExJRURZdXFjdFovVUJPMkRZai94TmRkdmc2cWY3Z2EwS1NvRy4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJEd2eEJOZDNqUHNzbGhTeWxMSUVEWXVxY3RaL1VCTzJEWWoveE5kZHZnNnFmN2dhMEtTb0cuIjt9', 1656273847),
+('ALvJ5ICO5ynbuY9dX2iwBcBZGr7qOftCtmntHRjO', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiSHBPNmVnaXVYR0NpaWJOVUVDeldMZDloNXBiMUdPUlBZeFZET2pVQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDA6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi91c2VyL3Byb2ZpbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkR3Z4Qk5kM2pQc3NsaFN5bExJRURZdXFjdFovVUJPMkRZai94TmRkdmc2cWY3Z2EwS1NvRy4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJEd2eEJOZDNqUHNzbGhTeWxMSUVEWXVxY3RaL1VCTzJEWWoveE5kZHZnNnFmN2dhMEtTb0cuIjt9', 1656328798),
+('IQgx5wHXgkhARCHaDVoaVYWaVXIXpVTvblhfmvSB', NULL, '127.0.0.1', 'PostmanRuntime/7.29.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiS3dSb3JkUm9YU1o0bExOM0JYUU00YW9ZcXhmb0JwRXB2S2dCUEl1TCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1656345862),
+('N3X5mYjChD4hhfXgqZheH5IdqDk56NlcZYA1xxl2', 4, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', 'YTo3OntzOjM6InVybCI7YTowOnt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi91c2VyL3Byb2ZpbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjY6Il90b2tlbiI7czo0MDoiald3MWFTbURkYWtGTXl6Z09XanhzazdUajRIWWxMcUZVbm1ycENDZSI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6NDtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJFJTbGhRUzRmTmNjaVJ0cmVTZ0piek9KMTljWElhV00vQXFGc2VxM2N2Q0xnVy5hL3QyeGh5IjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRSU2xoUVM0Zk5jY2lSdHJlU2dKYnpPSjE5Y1hJYVdNL0FxRnNlcTNjdkNMZ1cuYS90MnhoeSI7fQ==', 1656296818),
+('PjOkD41CjjfMjIiotLDuQVcwsgfRTbwUaXsnCglh', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWGZHdGVzZVRWUkNJV3FpMjdLN3FhdzM0aG9kM29wMm1MY1B5WVp5SiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9zbGlkZXIvYWxsIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1656350567);
 
 -- --------------------------------------------------------
 
@@ -652,9 +699,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', NULL, '$2y$10$GvxBNd3jPsslhSylLIEDYuqctZ/UBO2DYj/xNddvg6qf7ga0KSoG.', NULL, NULL, NULL, NULL, NULL, '2022-06-25 11:43:49', '2022-06-25 11:43:49'),
+(1, 'Admin', 'admin@gmail.com', NULL, '$2y$10$GvxBNd3jPsslhSylLIEDYuqctZ/UBO2DYj/xNddvg6qf7ga0KSoG.', NULL, NULL, NULL, NULL, '202206271119120601775_1015412735565518_5974184449388115247_n.jpg', '2022-06-25 11:43:49', '2022-06-27 09:19:58'),
 (2, 'mayar', 'mayar.atef.5100@gmail.com', NULL, '$2y$10$iE9avFwvYBfJKpgkEbBN.e89caU/ZS5CgSPB4vLd/4UV5S3xsVape', NULL, NULL, NULL, NULL, NULL, '2022-06-26 17:34:01', '2022-06-26 17:34:01'),
-(3, 'mayar atef', 'mayar@gmail.com', NULL, '$2y$10$c1/kzQ0D2ElT/va1R/ltyuqLzEiSvX7JwyzzWY7ViH/P0PL6/iXfm', NULL, NULL, NULL, NULL, NULL, '2022-06-26 17:45:08', '2022-06-26 17:45:08');
+(3, 'mayar atef', 'mayar@gmail.com', NULL, '$2y$10$c1/kzQ0D2ElT/va1R/ltyuqLzEiSvX7JwyzzWY7ViH/P0PL6/iXfm', NULL, NULL, NULL, NULL, NULL, '2022-06-26 17:45:08', '2022-06-26 17:45:08'),
+(4, 'Abdallah', 'abdo@gmail.com', NULL, '$2y$10$W6dfOeVFJ1t3d9VV/yKeMORp3o/bDywZ.5vhVWKQSh2gf0x9nfGcO', NULL, NULL, NULL, NULL, NULL, '2022-06-26 23:14:40', '2022-06-26 23:14:40'),
+(5, 'Test', 'test@gmail.com', NULL, '$2y$10$P8R4hbcBzCJeaWGKT/P/AeNpd9BpLVLfgzqoCQlji7D3LnSqXcMcK', NULL, NULL, NULL, NULL, NULL, '2022-06-27 15:11:07', '2022-06-27 15:11:07');
 
 -- --------------------------------------------------------
 
@@ -722,7 +771,26 @@ INSERT INTO `visitors` (`id`, `ip_address`, `visit_time`, `visit_date`, `created
 (44, '127.0.0.1', '12:42:25am', '27-06-2022', NULL, NULL),
 (45, '127.0.0.1', '01:06:11am', '27-06-2022', NULL, NULL),
 (46, '127.0.0.1', '01:06:26am', '27-06-2022', NULL, NULL),
-(47, '127.0.0.1', '01:09:47am', '27-06-2022', NULL, NULL);
+(47, '127.0.0.1', '01:09:47am', '27-06-2022', NULL, NULL),
+(48, '127.0.0.1', '07:12:59am', '27-06-2022', NULL, NULL),
+(49, '127.0.0.1', '07:17:03am', '27-06-2022', NULL, NULL),
+(50, '127.0.0.1', '07:17:49am', '27-06-2022', NULL, NULL),
+(51, '127.0.0.1', '07:19:28am', '27-06-2022', NULL, NULL),
+(52, '127.0.0.1', '07:31:21am', '27-06-2022', NULL, NULL),
+(53, '127.0.0.1', '07:37:34am', '27-06-2022', NULL, NULL),
+(54, '127.0.0.1', '07:48:51am', '27-06-2022', NULL, NULL),
+(55, '127.0.0.1', '07:53:55am', '27-06-2022', NULL, NULL),
+(56, '127.0.0.1', '08:07:08am', '27-06-2022', NULL, NULL),
+(57, '127.0.0.1', '08:07:44am', '27-06-2022', NULL, NULL),
+(58, '127.0.0.1', '08:23:15am', '27-06-2022', NULL, NULL),
+(59, '127.0.0.1', '08:23:19am', '27-06-2022', NULL, NULL),
+(60, '127.0.0.1', '08:24:02am', '27-06-2022', NULL, NULL),
+(61, '127.0.0.1', '08:24:30am', '27-06-2022', NULL, NULL),
+(62, '127.0.0.1', '08:27:35am', '27-06-2022', NULL, NULL),
+(63, '127.0.0.1', '11:10:40pm', '27-06-2022', NULL, NULL),
+(64, '127.0.0.1', '11:10:44pm', '27-06-2022', NULL, NULL),
+(65, '127.0.0.1', '11:22:57pm', '27-06-2022', NULL, NULL),
+(66, '127.0.0.1', '11:28:38pm', '27-06-2022', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -815,6 +883,7 @@ ALTER TABLE `oauth_refresh_tokens`
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `password_resets_email_index` (`email`);
 
 --
@@ -914,13 +983,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `favourites`
 --
 ALTER TABLE `favourites`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `home_sliders`
 --
 ALTER TABLE `home_sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -938,13 +1007,19 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `oauth_clients`
 --
 ALTER TABLE `oauth_clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `oauth_personal_access_clients`
 --
 ALTER TABLE `oauth_personal_access_clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -992,13 +1067,13 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
