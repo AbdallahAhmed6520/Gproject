@@ -4,11 +4,11 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 use App\Http\Requests\ResetRequest;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class ResetController extends Controller
@@ -25,12 +25,12 @@ class ResetController extends Controller
         if (!$emailcheck) {
             return response([
                 'message' => "Email Not Found"
-            ],401);          
+            ],401);
          }
          if (!$pincheck) {
             return response([
                 'message' => "Pin Code Invalid"
-            ],401);          
+            ],401);
          }
 
          DB::table('users')->where('email',$email)->update(['password' => $password]);
@@ -39,10 +39,10 @@ class ResetController extends Controller
          return response([
             'message' => 'Password Change Successfully'
          ],200);
-    
-
-    }// end method 
 
 
-    
-} 
+    }// end method
+
+
+
+}

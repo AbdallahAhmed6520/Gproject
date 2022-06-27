@@ -14,7 +14,7 @@ class AdminController extends Controller
         Auth::logout();
         return Redirect()->route('login');
 
-    } // end mehtod 
+    } // end mehtod
 
 
     public function UserProfile(){
@@ -22,7 +22,7 @@ class AdminController extends Controller
         $adminData = User::find(1);
         return view('backend.admin.admin_profile',compact('adminData'));
 
-    } // end mehtod 
+    } // end mehtod
 
 
     public function UserProfileStore(Request $request){
@@ -47,13 +47,13 @@ class AdminController extends Controller
 
         return redirect()->route('user.profile')->with($notification);
 
-    } // end mehtod 
+    } // end mehtod
 
 
 
     public function ChangePassword(){
         return view('backend.admin.change_password');
-    } // end mehtod 
+    } // end mehtod
 
 
     public function ChangePasswordUpdate(Request $request){
@@ -76,7 +76,7 @@ class AdminController extends Controller
             return redirect()->back();
         }
 
-    } // end mehtod 
+    } // end mehtod
 
 
 
@@ -85,4 +85,3 @@ class AdminController extends Controller
 
 
 }
- 

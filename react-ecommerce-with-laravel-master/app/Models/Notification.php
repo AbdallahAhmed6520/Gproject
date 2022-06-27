@@ -9,4 +9,8 @@ class Notification extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public static function get()
+    {
+    }
 }
