@@ -36,10 +36,10 @@ class AuthController extends Controller
             ],400);
         }
         return response([
-            'message' => 'Invalid Email Or Password' 
+            'message' => 'Invalid Email Or Password'
         ],401);
 
-    } // end method 
+    } // end method
 
 
  public function Register(RegisterRequest $request){
@@ -49,7 +49,7 @@ class AuthController extends Controller
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => Hash::make($request->password) 
+                'password' => Hash::make($request->password)
             ]);
             $token = $user->createToken('app')->accessToken;
 
@@ -63,9 +63,9 @@ class AuthController extends Controller
                 return response([
                     'message' => $exception->getMessage()
                 ],400);
-            } 
+            }
 
-    } // end mehtod 
+    } // end mehtod
 
 
 
@@ -73,4 +73,3 @@ class AuthController extends Controller
 
 
 }
- 

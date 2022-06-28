@@ -9,12 +9,11 @@ use App\Models\Notification;
 class NotificationController extends Controller
 {
     public function NotificationHistory(){
-        
+
         $result = Notification::get();
         return $result;
 
-    } // End Method 
+    } // End Method
 
 
 }
- 

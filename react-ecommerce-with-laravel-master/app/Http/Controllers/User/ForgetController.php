@@ -24,7 +24,7 @@ class ForgetController extends Controller
             ],401);
         }
 
-        // generate Randome Token 
+        // generate Randome Token
         $token = rand(10,100000);
 
         try{
@@ -33,7 +33,7 @@ class ForgetController extends Controller
                 'token' => $token
             ]);
 
-            // Mail Send to User 
+            // Mail Send to User
             Mail::to($email)->send(new ForgetMail($token));
 
             return response([
@@ -45,7 +45,7 @@ class ForgetController extends Controller
                 'message' => $exception->getMessage()
             ],400);
         }
-    } // end mehtod 
+    } // end mehtod
 
 
 
