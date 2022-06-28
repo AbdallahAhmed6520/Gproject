@@ -8,16 +8,18 @@ use App\Models\ProductReview;
 
 class ReviewController extends Controller
 {
-    public function ReviewList(Request $request){
+    public function ReviewList(Request $request)
+    {
 
-        $product_code = $request->product_code;
-        $result = ProductReview::where('product_code',$product_code)->orderBy('id','desc')->limit(4)->get();
+        $id = $request->id;
+        $result = ProductReview::where('product_id', $id)->orderBy('id', 'desc')->limit(4)->get();
         return $result;
     } // End Method 
 
 
 
-    public function PostReview(Request $request){
+    public function PostReview(Request $request)
+    {
 
         $product_name = $request->input('product_name');
         $product_code = $request->input('product_code');
@@ -25,8 +27,8 @@ class ReviewController extends Controller
         $reviewer_photo = $request->input('reviewer_photo');
         $reviewer_rating = $request->input('reviewer_rating');
         $reviewer_comments = $request->input('reviewer_comments');
-         
-         $result = ProductReview::insert([
+
+        $result = ProductReview::insert([
             'product_name' => $product_name,
             'product_code' => $product_code,
             'reviewer_name' => $user_name,
@@ -34,18 +36,17 @@ class ReviewController extends Controller
             'reviewer_rating' => $reviewer_rating,
             'reviewer_comments' => $reviewer_comments,
 
-         ]);
-         return $result;
-
+        ]);
+        return $result;
     } // End Method 
 
 
-    public function GetAllReview(){
+    public function GetAllReview()
+    {
 
-         $review = ProductReview::latest()->get();
+        $review = ProductReview::latest()->get();
         return view('backend.review.review_all', compact('review'));
-    }// End Method 
+    } // End Method 
 
 
-} 
- 
+}

@@ -36,48 +36,55 @@ class ReviewList extends Component {
 
           if(ReviewList.reviewer_rating ==="1"){
                return <div>
-               <p className=" p-0 m-0"><span className="Review-Title">{ReviewList.reviewer_name}</span> <span className="text-success"><i className="fa fa-star"></i> </span> </p>
-                  <p>{ReviewList.reviewer_comments}</p>
-        
-                     </div> 
+               <p className=" p-0 m-0"><span className="Review-Title">{ReviewList.reviewer_name}</span>
+               <span className="text-success"><i className="fa fa-star"></i> 
+               </span> </p>
+                    <p>{ReviewList.reviewer_comments}</p>
+                    </div> 
           }
           else if(ReviewList.reviewer_rating ==="2"){
 
                return <div>
-               <p className=" p-0 m-0"><span className="Review-Title">{ReviewList.reviewer_name}</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i>   </span> </p>
-                  <p>{ReviewList.reviewer_comments}</p>
-        
-                     </div>
-        
+               <p className=" p-0 m-0"><span className="Review-Title">{ReviewList.reviewer_name}</span> 
+               <span className="text-success"><i className="fa fa-star"></i> 
+               <i className="fa fa-star"></i>   
+               </span> </p>
+               <p>{ReviewList.reviewer_comments}</p>
+                    </div>
 
           }
           else if(ReviewList.reviewer_rating ==="3"){
                return <div>
-               <p className=" p-0 m-0"><span className="Review-Title">{ReviewList.reviewer_name}</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> </span> </p>
-                  <p>{ReviewList.reviewer_comments}</p>
-        
-                     </div>
-        
+               <p className=" p-0 m-0"><span className="Review-Title">{ReviewList.reviewer_name}</span> 
+               <span className="text-success"><i className="fa fa-star"></i> 
+               <i className="fa fa-star"></i> <i className="fa fa-star"></i> 
+               </span> </p>
+               <p>{ReviewList.reviewer_comments}</p>
+                    </div>
 
           }
           else if(ReviewList.reviewer_rating ==="4"){
                return <div>
-               <p className=" p-0 m-0"><span className="Review-Title">{ReviewList.reviewer_name}</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> </span> </p>
-                  <p>{ReviewList.reviewer_comments}</p>
-        
-                     </div>
-        
+               <p className=" p-0 m-0"><span className="Review-Title">{ReviewList.reviewer_name}</span> 
+               <span className="text-success"><i className="fa fa-star"></i> 
+               <i className="fa fa-star"></i> <i className="fa fa-star"></i> 
+               <i className="fa fa-star"></i> 
+               </span> </p>
+               <p>{ReviewList.reviewer_comments}</p>
+                    </div>
 
           }
           else if(ReviewList.reviewer_rating ==="5"){
                return <div>
-               <p className=" p-0 m-0"><span className="Review-Title">{ReviewList.reviewer_name}</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i><i className="fa fa-star"></i> </span> </p>
-                  <p>{ReviewList.reviewer_comments}</p>
-        
-                     </div> 
+               <p className=" p-0 m-0"><span className="Review-Title">{ReviewList.reviewer_name}</span> 
+               <span className="text-success"><i className="fa fa-star"></i> 
+               <i className="fa fa-star"></i> <i className="fa fa-star"></i> 
+               <i className="fa fa-star"></i><i className="fa fa-star"></i> 
+               </span> </p>
+               <p>{ReviewList.reviewer_comments}</p>
+                    </div> 
 
           } // end else if 
-  
 
           }) // end map
 
@@ -96,16 +103,15 @@ class ReviewList extends Component {
                return (
                     <div>
      
-     <h6 className="mt-2">REVIEWS</h6>
+     <        h6 className="mt-2">REVIEWS</h6>
      
-              <p>There have no review Yet </p>
+               <p>There have no review Yet </p>
                          
                     </div>
                )
 
 
           } 
-        
      }
 }
 
