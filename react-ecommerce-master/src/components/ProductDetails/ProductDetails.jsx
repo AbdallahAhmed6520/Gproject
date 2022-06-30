@@ -442,11 +442,11 @@ class ProductDetails extends Component {
           <p> {long_description} </p>
           </Col>
 
-          <Col className="" md={6} lg={6} sm={12} xs={12}>
+          {/* <Col className="" md={6} lg={6} sm={12} xs={12}>
           
           <ReviewList code={product_id} />
  
-          </Col>
+          </Col> */}
      </Row>
 
 </Col>

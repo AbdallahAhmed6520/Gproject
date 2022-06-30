@@ -46,7 +46,7 @@ class Notification extends Component {
            this.setState({Notificationmsg:Nmsg,Notificationtitle:Ntitle,Notificationdate:Ndate})
       }; 
 
-     render() {
+     render() { 
 
           if(!localStorage.getItem('token')){
                return <Redirect to="/login" />
