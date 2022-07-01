@@ -257,12 +257,12 @@ class Cart extends Component {
      <label className="form-label">Choose City</label>
      <select onChange={this.cityOnChange} className="form-control">
      <option value="">Choose</option>
-     <option value="Dhaka">Assam</option>
-     <option value="Dhaka">Bihar </option>
-     <option value="Dhaka">Goa </option>
-     <option value="Dhaka">Gujarat </option>
-     <option value="Dhaka">Himachal Pradesh </option>
-     <option value="Dhaka">Punjab  </option>
+     <option value="Dhaka">Cairo</option>
+     <option value="Dhaka">Assuit </option>
+     <option value="Dhaka">Alex </option>
+     <option value="Dhaka">Aswan </option>
+     <option value="Dhaka">sohag </option>
+     <option value="Dhaka">Qena  </option>
      </select>
 </div>
 <div className="col-md-12 p-1 col-lg-12 col-sm-12 col-12">
