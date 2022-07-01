@@ -164,5 +164,16 @@ class ProductListController extends Controller
         return view('backend.product.product_edit', compact('category', 'subcategory', 'product', 'details'));
     } // End Method
 
+    public function DeleteProduct($id)
+    {
 
+        ProductList::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Product Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
