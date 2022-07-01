@@ -43,7 +43,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/change/password', [AdminController::class, 'ChangePassword'])->name('change.password');
 
     Route::post('/change/password/update', [AdminController::class, 'ChangePasswordUpdate'])->name('change.password.update');
-
 });
 
 
@@ -105,7 +104,7 @@ Route::prefix('product')->group(function () {
 
     Route::get('/edit/{id}', [ProductListController::class, 'EditProduct'])->name('product.edit');
 
-    Route::post('/update', [SliderController::class, 'UpdateProduct'])->name('product.update');
+    Route::post('/update', [ProductListController::class, 'UpdateProduct'])->name('product.update');
 
     Route::get('/delete/{id}', [ProductListController::class, 'DeleteProduct'])->name('product.delete');
 });
@@ -137,6 +136,4 @@ Route::prefix('order')->group(function () {
     Route::get('/status/processing/{id}', [ProductCartController::class, 'PendingToProcessing'])->name('pending.processing');
 
     Route::get('/status/complete/{id}', [ProductCartController::class, 'ProcessingToComplete'])->name('processing.complete');
-
-
 });

@@ -31,14 +31,13 @@ class Profile extends Component {
 
                     <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src={Ariyan} className="userprofile" />
- 
+ <hr />
   <ListGroup className="list-group-flush">
         
-    <ListGroupItem> <Link className="text-link" to="/orderlist"> <p className="product-name-on-card"> Order List </p></Link> </ListGroupItem>
+    <ListGroupItem> <Link className="text-link" to="/orderlist" style={{ textAlign:'center' }} > <p className="product-name-on-card"> Order List </p></Link> </ListGroupItem>
+    {/* <ListGroupItem> <Link className="text-link" to="/orderlist"> <p className="product-name-on-card"> Order List </p></Link> </ListGroupItem>
     
-    <ListGroupItem> <Link className="text-link" to="/orderlist"> <p className="product-name-on-card"> Order List </p></Link> </ListGroupItem>
-    
-    <ListGroupItem> <Link className="text-link" to="/orderlist"> <p className="product-name-on-card"> Order List </p></Link> </ListGroupItem>
+    <ListGroupItem> <Link className="text-link" to="/orderlist"> <p className="product-name-on-card"> Order List </p></Link> </ListGroupItem> */}
   </ListGroup>
    
 </Card>
@@ -49,8 +48,8 @@ class Profile extends Component {
 
                     <Col lg={8} md={8} sm={12} >
                     <ul className="list-group">
-<li className="list-group-item">Name :  {name} </li>
-<li className="list-group-item">Email :  {email} </li>
+<li className="list-group-item" style={{ fontWeight:'bolder' }}>Name :  {name} </li>
+<li className="list-group-item" style={{ fontWeight:'bolder' }}>Email :  {email} </li>
                </ul>
                     </Col>
 
