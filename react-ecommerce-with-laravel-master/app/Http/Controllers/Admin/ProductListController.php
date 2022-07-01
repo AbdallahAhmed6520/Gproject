@@ -18,7 +18,7 @@ class ProductListController extends Controller
         $remark = $request->remark;
         $productlist = ProductList::where('remark', $remark)->limit(8)->get();
         return $productlist;
-    } // End Method 
+    } // End Method
 
     public function ProductListByCategory(Request $request)
     {
@@ -26,7 +26,7 @@ class ProductListController extends Controller
         $Category = $request->category;
         $productlist = ProductList::where('category', $Category)->get();
         return $productlist;
-    } // End Method 
+    } // End Method
 
 
     public function ProductListBySubCategory(Request $request)
@@ -37,7 +37,7 @@ class ProductListController extends Controller
         $productlist = ProductList::where('category', $Category)->where('subcategory', $SubCategory)->get();
 
         return $productlist;
-    } // End Method 
+    } // End Method
 
 
 
@@ -47,7 +47,7 @@ class ProductListController extends Controller
         $key = $request->key;
         $productlist = ProductList::where('title', 'LIKE', "%{$key}%")->orWhere('brand', 'LIKE', "%{$key}%")->get();
         return $productlist;
-    } // End Method 
+    } // End Method
 
 
     public function SimilarProduct(Request $request)
@@ -55,7 +55,7 @@ class ProductListController extends Controller
         $subcategory = $request->subcategory;
         $productlist = ProductList::where('subcategory', $subcategory)->orderBy('id', 'desc')->limit(6)->get();
         return $productlist;
-    } // End Method 
+    } // End Method
 
 
 
@@ -64,7 +64,7 @@ class ProductListController extends Controller
 
         $products = ProductList::latest()->paginate(10);
         return view('backend.product.product_all', compact('products'));
-    } // End Method 
+    } // End Method
 
 
     public function AddProduct()
@@ -73,7 +73,7 @@ class ProductListController extends Controller
         $category = Category::orderBy('category_name', 'ASC')->get();
         $subcategory = Subcategory::orderBy('subcategory_name', 'ASC')->get();
         return view('backend.product.product_add', compact('category', 'subcategory'));
-    } // End Method 
+    } // End Method
 
 
     public function StoreProduct(Request $request)
@@ -104,7 +104,7 @@ class ProductListController extends Controller
 
         ]);
 
-        /////// Insert Into Product Details Table ////// 
+        /////// Insert Into Product Details Table //////
 
         $image1 = $request->file('image_one');
         $name_gen1 = hexdec(uniqid()) . '.' . $image1->getClientOriginalExtension();
@@ -150,7 +150,7 @@ class ProductListController extends Controller
         );
 
         return redirect()->route('all.product')->with($notification);
-    } // End Method 
+    } // End Method
 
 
 
@@ -162,7 +162,7 @@ class ProductListController extends Controller
         $product = ProductList::findOrFail($id);
         $details = ProductDetails::where('product_id', $id)->get();
         return view('backend.product.product_edit', compact('category', 'subcategory', 'product', 'details'));
-    } // End Method 
+    } // End Method
 
 
 }
