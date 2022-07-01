@@ -90,7 +90,7 @@ Route::get('/similar/{subcategory}', [ProductListController::class, 'SimilarProd
 Route::post('/addtocart', [ProductCartController::class, 'addToCart']);
 
 // Cart Count Route
-Route::get('/cartcount/{email}', [ProductCartController::class, 'CartCount']);
+Route::get('/cartcount/{product_code}', [ProductCartController::class, 'CartCount']);
 
 
 // Favourite Route
