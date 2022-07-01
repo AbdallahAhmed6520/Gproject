@@ -116,7 +116,7 @@ Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage'])-
 
 /// Product Review Route
 Route::get('/all/review', [ReviewController::class, 'GetAllReview'])->name('all.review');
-
+Route::get('/review/delete/{id}', [ReviewController::class, 'DeleteReview'])->name('review.delete');
 /// Site Info Route
 Route::get('/getsite/info', [SiteInfoController::class, 'GetSiteInfo'])->name('getsite.info');
 
