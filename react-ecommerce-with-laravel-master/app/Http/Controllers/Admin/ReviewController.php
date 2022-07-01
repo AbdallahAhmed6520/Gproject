@@ -48,5 +48,17 @@ class ReviewController extends Controller
         return view('backend.review.review_all', compact('review'));
     } // End Method 
 
+    public function DeleteReview($id)
+    {
+
+        ProductReview::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'ProductReview Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    } // End Mehtod
 
 }
